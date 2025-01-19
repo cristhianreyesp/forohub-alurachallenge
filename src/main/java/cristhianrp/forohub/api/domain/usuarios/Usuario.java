@@ -1,5 +1,6 @@
 package cristhianrp.forohub.api.domain.usuarios;
 
+import cristhianrp.forohub.api.domain.perfil.Perfil;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -23,22 +24,26 @@ public class Usuario implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String login;
-    private String clave;
+    private String nombre;
+    private String correoElectronico;
+    private String contrasena;
+    @ManyToOne
+    @JoinColumn(name = "perfil_id")
+    private Perfil perfil;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        return List.of();
     }
 
     @Override
     public String getPassword() {
-        return clave;
+        return contrasena;
     }
 
     @Override
     public String getUsername() {
-        return login;
+        return correoElectronico;
     }
 
     @Override
