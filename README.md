@@ -40,7 +40,7 @@ Al final del desarrollo, nuestra API contará con:
 - **Spring Boot**  
 - **Spring Data JPA**  
 - **Hibernate**  
-- **H2 (Base de datos en memoria)** o **MySQL** para entornos de producción.  
+- **MySQL**  
 - **Spring Security** para autenticación y autorización.  
 - **Maven** para la gestión de dependencias.
 
